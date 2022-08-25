@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomePageComponent
+  },
+  {
+    path: 'google-api-client',
+    loadChildren: () => import('./google-api-client/google-api-client.module').then(m => m.GoogleApiClientModule)
   }
 ];
 
