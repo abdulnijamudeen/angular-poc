@@ -5,6 +5,7 @@ import { CardModule } from 'primeng/card';
 import { AvatarModule } from 'primeng/avatar';
 import { TagModule } from 'primeng/tag';
 import { PanelModule } from 'primeng/panel';
+import { ImageModule } from 'primeng/image';
 
 export const PRIME_UI_MODULES = [
   ToolbarModule,
@@ -12,7 +13,8 @@ export const PRIME_UI_MODULES = [
   CardModule,
   AvatarModule,
   TagModule,
-  PanelModule
+  PanelModule,
+  ImageModule
 ];
 
 @NgModule({
