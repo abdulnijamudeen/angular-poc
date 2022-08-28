@@ -8,8 +8,8 @@ const routes: Routes = [
     component: HomePageComponent
   },
   {
-    path: 'google-api-client',
-    loadChildren: () => import('./google-api-client/google-api-client.module').then(m => m.GoogleApiClientModule)
+    path: 'filebase-google-login',
+    loadChildren: () => import('./filebase-google-login/filebase-google-login.module').then(m => m.FilebaseGoogleLoginModule)
   }
 ];
 

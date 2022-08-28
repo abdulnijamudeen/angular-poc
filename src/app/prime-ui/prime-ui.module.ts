@@ -14,7 +14,7 @@ export const PRIME_UI_MODULES = [
   AvatarModule,
   TagModule,
   PanelModule,
-  ImageModule
+  ImageModule,
 ];
 
 @NgModule({

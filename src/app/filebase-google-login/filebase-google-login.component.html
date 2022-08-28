@@ -1,0 +1,41 @@
+<p-toolbar styleClass="bg-blue-500 border-noround sticky top-0 z-1 text-white py-1">
+  <div class="p-toolbar-group-left">
+    <p-image src="https://nivedita81.github.io/assets/img/firebase_auth.png" alt="Image" width="50" class="mr-2"></p-image>
+    <p class="font-semibold">Firebase Google Auth</p>
+  </div>
+  <div class="p-toolbar-group-right">
+    <i class="pi pi-bars"></i>
+  </div>
+</p-toolbar>
+<div class=" px-2 py-3">
+
+  <div class="text-center">
+    <div *ngIf="user$ | async as user; else showLogin">
+      <div class="p-card bg-blue-100 p-2">
+        <div class="p-card-content py-1">
+          <div class="grid">
+            <div class="col-3 flex align-items-center justify-content-center">
+              <p-image [src]="user.photoURL || ''" alt="Image" width="70"></p-image>
+            </div>
+            <div class="col-9">
+              <p class="font-semibold">Hello {{ user.displayName }}!</p>
+              <p class="font-semibold">{{ user.email }}!</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-card-footer p-0 text-right">
+          <p-button label="Logout" icon="pi pi-sign-out" (click)="logout()"></p-button>
+        </div>
+      </div>
+    </div>
+    <ng-template #showLogin>
+      <p-button styleClass="mx-3 px-2 py-1 p-button-outlined" (click)="login()">
+        <ng-template pTemplate="content">
+          <img alt="logo" class="mr-2 w-3rem" src="https://w7.pngwing.com/pngs/249/19/png-transparent-google-logo-g-suite-google-guava-google-plus-company-text-logo.png" />
+          <p class="text-sm font-semibold">Sign in with Google</p>
+        </ng-template>
+      </p-button>
+    </ng-template>
+  </div>
+
+</div>
