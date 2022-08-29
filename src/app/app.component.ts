@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { App, BackButtonListenerEvent } from '@capacitor/app';
 import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
@@ -8,7 +9,15 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private primengConfig: PrimeNGConfig) {}
+  constructor(private primengConfig: PrimeNGConfig) {
+    App.addListener('backButton', (event: BackButtonListenerEvent) => {
+      if(event.canGoBack) {
+        window.history.back();
+      } else {
+        App.exitApp()
+      }
+    });
+  }
 
   ngOnInit() {
       this.primengConfig.ripple = true;
