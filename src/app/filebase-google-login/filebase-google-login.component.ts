@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import firebase from 'firebase/compat/app';
 import { Observable } from 'rxjs';
 
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 export class FilebaseGoogleLoginComponent implements OnInit {
 
   user$!: Observable<firebase.User | null>;
+  user!: any;
 
   constructor(public auth: AngularFireAuth) {
   }
@@ -24,6 +26,18 @@ export class FilebaseGoogleLoginComponent implements OnInit {
   }
   logout() {
     this.auth.signOut();
+  }
+
+  loginAndroid() {
+    GoogleAuth.signIn()
+    .then(user => this.user = user)
+    .catch(console.log);
+  }
+
+  logoutAndroid() {
+    GoogleAuth.signOut()
+    .then(v => this.user = null)
+    .catch(console.log);
   }
 
 }

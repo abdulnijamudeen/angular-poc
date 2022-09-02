@@ -9,7 +9,7 @@
 </p-toolbar>
 <div class=" px-2 py-3">
 
-  <div class="text-center">
+  <div class="text-center mb-2">
     <div *ngIf="user$ | async as user; else showLogin">
       <div class="p-card bg-blue-100 p-2">
         <div class="p-card-content py-1">
@@ -36,6 +36,26 @@
         </ng-template>
       </p-button>
     </ng-template>
+  </div>
+
+  <div class="mb-2">
+    <div *ngIf="user" class="card bg-blue-100 p-2 mb-2">
+      <div class="p-card-content py-1">
+        <div class="grid">
+          <div class="col-3 flex align-items-center justify-content-center">
+            <p-image [src]="user.imageUrl" alt="Image" width="70"></p-image>
+          </div>
+          <div class="col-9">
+            <p  class="font-semibold">{{user.displayName}}</p>
+            <p  class="font-semibold">{{user.email}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-row justify-content-center">
+      <button pButton *ngIf="!user" (click)="loginAndroid()">Sign in with Google Android</button>
+      <button pButton *ngIf="user" (click)="logoutAndroid()">Sign out with Google Android</button>
+    </div>
   </div>
 
 </div>
