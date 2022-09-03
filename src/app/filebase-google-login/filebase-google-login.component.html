@@ -32,7 +32,7 @@
       <p-button styleClass="mx-3 px-2 py-1 p-button-outlined" (click)="login()">
         <ng-template pTemplate="content">
           <img alt="logo" class="mr-2 w-3rem" src="https://w7.pngwing.com/pngs/249/19/png-transparent-google-logo-g-suite-google-guava-google-plus-company-text-logo.png" />
-          <p class="text-sm font-semibold">Sign in with Google</p>
+          <p class="text-sm font-semibold">Sign in with Google Web</p>
         </ng-template>
       </p-button>
     </ng-template>
@@ -55,6 +55,12 @@
     <div class="flex flex-row justify-content-center">
       <button pButton *ngIf="!user" (click)="loginAndroid()">Sign in with Google Android</button>
       <button pButton *ngIf="user" (click)="logoutAndroid()">Sign out with Google Android</button>
+    </div>
+  </div>
+
+  <div class="mb-2">
+    <div class="flex flex-row justify-content-center">
+      <button pButton (click)="googleFirebaseLogin()">Sign in with Google Android Firebase</button>
     </div>
   </div>
 
